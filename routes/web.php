@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CourseController;
 
 // Redirect root ke login sementara
 Route::get('/', function () {
@@ -23,4 +24,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     })->name('dashboard');
     // Route Kategori
     Route::resource('categories', CategoryController::class);
+    // Route Kursus
+    Route::resource('courses', CourseController::class);
 });

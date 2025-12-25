@@ -66,11 +66,11 @@
                         <div class="sb-sidenav-menu-heading">Kelola Kursus</div>
                         <a class="nav-link" href="{{ route('categories.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
-                            Categories
+                            Kategori
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('courses.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Courses
+                            Kursus
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Admin</div>
@@ -86,8 +86,22 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    @yield('content')
-                </div>
+                            @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            @if(session('error'))
+                                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                                    {{ session('error') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            @yield('content')
+                        </div>
             </main>
 
             <footer class="py-4 bg-light mt-auto">
@@ -104,6 +118,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="{{ asset('startbootstrap-sb-admin-gh-pages/js/scripts.js') }}"></script>
+    <script>
+        // Auto-close bootstrap alerts after 5 seconds
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                var alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function (el) {
+                    try { var bsAlert = new bootstrap.Alert(el); bsAlert.close(); } catch (e) { /* ignore */ }
+                });
+            }, 5000);
+        });
+    </script>
 </body>
 
 </html>
