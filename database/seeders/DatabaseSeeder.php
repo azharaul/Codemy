@@ -31,10 +31,10 @@ class DatabaseSeeder extends Seeder
         ]);
         $student = User::create([
             'name' => 'Askhabul Nur Ardiansyakh',
-            'email' => 'siti@codemy.com',
-            'password' => bcrypt('password'),
+            'email' => 'askhabul@codemy.com',
+            'password' => bcrypt('12345678'),
             'occupation' => 'Pelajar',
-            'role' => 'student',
+            'role' => 'owner',
         ]);
         // 2. Buat Kategori
         $cat1 = Category::create(['name' => 'Programming', 'slug' => 'programming']);
