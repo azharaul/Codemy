@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserController;
 
 // Redirect root ke login sementara
 Route::get('/', function () {
@@ -26,4 +27,5 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('categories', CategoryController::class);
     // Route Kursus
     Route::resource('courses', CourseController::class);
+    Route::resource('users', UserController::class);
 });

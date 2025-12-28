@@ -1,11 +1,14 @@
 <?php
+
 namespace Database\Seeders;
+
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Lesson;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,31 +18,31 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Buat User Penting
         $owner = User::create([
-            'name' => 'Azhar Aulia Priatna',
+            'name' => 'Owner Tester',
             'email' => 'owner@codemy.com',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('admin123'),
             'occupation' => 'CEO',
             'role' => 'owner',
         ]);
-        
+
         $teacher = User::create([
-            'name' => 'Muhammad Rafi',
-            'email' => 'budi@codemy.com',
-            'password' => bcrypt('password'),
+            'name' => 'Teacher Tester',
+            'email' => 'teacher@codemy.com',
+            'password' => bcrypt('admin123'),
             'occupation' => 'Web Developer',
             'role' => 'teacher',
         ]);
         $student = User::create([
-            'name' => 'Askhabul Nur Ardiansyakh',
+            'name' => 'Student Tester',
             'email' => 'askhabul@codemy.com',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('admin123'),
             'occupation' => 'Pelajar',
-            'role' => 'owner',
+            'role' => 'student',
         ]);
         // 2. Buat Kategori
-        $cat1 = Category::create(['name' => 'Programming', 'slug' => 'programming']);
-        $cat2 = Category::create(['name' => 'Design', 'slug' => 'design']);
-        Category::create(['name' => 'Marketing', 'slug' => 'marketing']);
+        $cat1 = Category::create(['name' => 'Web Development', 'slug' => 'web-programming']);
+        $cat2 = Category::create(['name' => 'Database', 'slug' => 'database']);
+        Category::create(['name' => 'Game Development', 'slug' => 'game-development']);
         // 3. Buat Kursus (Oleh Pak Budi, Kategori Programming)
         $courseLaravel = Course::create([
             'name' => 'Belajar Laravel 11 dari Nol',

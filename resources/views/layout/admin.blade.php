@@ -74,9 +74,9 @@
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Admin</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('users.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                            Manage Teachers
+                            Manage Users
                         </a>
                     </div>
                 </div>
@@ -86,22 +86,22 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                            @if(session('success'))
-                                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                                    {{ session('success') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @endif
-
-                            @if(session('error'))
-                                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                                    {{ session('error') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @endif
-
-                            @yield('content')
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                            {{ session('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @yield('content')
+                </div>
             </main>
 
             <footer class="py-4 bg-light mt-auto">

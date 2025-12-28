@@ -22,6 +22,7 @@
                             <td>{{ $kategori->slug }}</td>
                             <td>
                                 <a href="" class="btn btn-warning sm">Edit</a>
+                                <a href="" class="btn btn-danger sm">Hapus</a>
                             </td>
                         </tr>
                     @endforeach
