@@ -27,5 +27,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('categories', CategoryController::class);
     // Route Kursus
     Route::resource('courses', CourseController::class);
+    // Route manage user
     Route::resource('users', UserController::class);
 });

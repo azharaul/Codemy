@@ -27,7 +27,11 @@
                                 </span>
                             </td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
+                                    @csrf @method('DELETE')
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus user?')">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
