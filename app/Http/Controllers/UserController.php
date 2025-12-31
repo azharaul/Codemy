@@ -25,18 +25,18 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users,email,' . $user->id,
             'occupation' => 'nullable|string|',
-            'role' => 'required|in:student,teacher,owner'
+            'role' => 'required|in:student,teacher'
 
 
         ]);
 
         $user->update($validate);
-        return redirect()->route('users.index')->with('success', 'User berhasi diedit!');
+        return redirect()->route('users.index')->with('success', 'User berhasil diedit!');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.index')->with('success', 'User berhasi dihapus!');
+        return redirect()->route('users.index')->with('success', 'User berhasil dihapus!');
     }
 }

@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Buat User Penting
         $owner = User::create([
-            'name' => 'Owner Tester',
-            'email' => 'owner@codemy.com',
+            'name' => 'Principal Tester',
+            'email' => 'principal@codemy.com',
             'password' => bcrypt('admin123'),
-            'occupation' => 'CEO',
-            'role' => 'owner',
+            'occupation' => 'Kepala Sekolah',
+            'role' => 'teacher',
         ]);
 
         $teacher = User::create([

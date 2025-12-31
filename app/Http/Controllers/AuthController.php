@@ -50,7 +50,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            if (Auth::user()->role === 'owner' || Auth::user()->role === 'teacher') {
+            if (Auth::user()->role === 'teacher') {
                 return redirect()->intended('/admin/dashboard');
             }
 
