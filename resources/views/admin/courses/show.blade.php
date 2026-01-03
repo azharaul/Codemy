@@ -82,5 +82,41 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Materi Kursus</span>
+                    <a href="{{ route('lessons.create', ['course_id' => $course->id]) }}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-plus"></i> Materi
+                    </a>
+                </div>
+                <div class="card-body">
+                    @if($course->lessons->isEmpty())
+                        <p class="text-muted">Belum ada materi untuk kursus ini.</p>
+                    @else
+                        <ul class="list-group">
+                            @foreach($course->lessons as $lesson)
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>{{ $lesson->name }}</strong>
+                                        <div class="text-muted small">{{ $lesson->video_url ? 'Video' : 'Tidak ada video' }}</div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a href="{{ route('lessons.edit', $lesson->id) }}" class="btn btn-sm btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="{{ route('lessons.destroy', $lesson->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus materi ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

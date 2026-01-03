@@ -28,6 +28,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::resource('categories', CategoryController::class);
     // Route Kursus
     Route::resource('courses', CourseController::class);
+    // Route Materi (Lessons)
+    Route::resource('lessons', App\Http\Controllers\LessonController::class);
     // Route manage user
     Route::resource('users', UserController::class);
 });
