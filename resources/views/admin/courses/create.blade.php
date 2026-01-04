@@ -130,17 +130,5 @@
         </div>
     </div>
 
-    <script>
-        // Auto-generate slug from name
-        document.getElementById('name').addEventListener('keyup', function() {
-            const name = this.value;
-            const slug = name
-                .toLowerCase()
-                .trim()
-                .replace(/[^\w\s-]/g, '')
-                .replace(/[\s_]+/g, '-')
-                .replace(/^-+|-+$/g, '');
-            document.getElementById('slug').value = slug;
-        });
-    </script>
+
 @endsection

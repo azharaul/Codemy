@@ -6,15 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Course;
 
+
 class LessonController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index() {}
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         $courseId = request()->query('course_id');
-        $course = $courseId ? Course::find($courseId) : null;
+        $course = Course::findOrFail($courseId);
         return view('admin.lessons.create', compact('course'));
     }
 
@@ -23,20 +29,20 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'video_url' => 'nullable|url|max:1000',
-            'course_id' => 'required|exists:courses,id',
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'video_url' => 'required|url',
+            'course_id' => 'required',
+        ]);
+        Lesson::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'video_url' => $request->video_url,
+            'course_id' => $request->course_id,
         ]);
 
-        if (empty($data['slug'])) {
-            $data['slug'] = \Str::slug($data['name']);
-        }
-
-        Lesson::create($data);
-
-        return redirect()->route('courses.show', $data['course_id'])->with('success', 'Materi berhasil dibuat.');
+        return redirect()->route('courses.show', $request->course_id)->with('success', 'Materi berhasil ditambahkan!');
     }
 
     /**
@@ -44,8 +50,7 @@ class LessonController extends Controller
      */
     public function show(string $id)
     {
-        $lesson = Lesson::findOrFail($id);
-        return view('admin.lessons.show', compact('lesson'));
+        //
     }
 
     /**
@@ -64,15 +69,19 @@ class LessonController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
 
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'video_url' => 'nullable|url|max:1000',
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'video_url' => 'required|url',
         ]);
 
-        $lesson->update($data);
+        $lesson->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'video_url' => $request->video_url,
+        ]);
 
-        return redirect()->route('courses.show', $lesson->course_id)->with('success', 'Materi berhasil diupdate.');
+        return redirect()->route('courses.show', $lesson->course_id)->with('success', 'Materi berhasil diupdate!');
     }
 
     /**
@@ -81,7 +90,9 @@ class LessonController extends Controller
     public function destroy(string $id)
     {
         $lesson = Lesson::findOrFail($id);
+
         $courseId = $lesson->course_id;
+
         $lesson->delete();
 
         return redirect()->route('courses.show', $courseId)->with('success', 'Materi berhasil dihapus.');

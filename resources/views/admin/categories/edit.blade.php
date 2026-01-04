@@ -17,15 +17,9 @@
 
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama Kategori</label>
-                            <input
-                                type="text"
-                                class="form-control @error('name') is-invalid @enderror"
-                                id="name"
-                                name="name"
-                                placeholder="Masukkan nama kategori"
-                                value="{{ old('name', $category->name) }}"
-                                required
-                            >
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                                name="name" placeholder="Masukkan nama kategori" value="{{ old('name', $category->name) }}"
+                                required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -33,14 +27,9 @@
 
                         <div class="mb-3">
                             <label for="slug" class="form-label">Slug</label>
-                            <input
-                                type="text"
-                                class="form-control @error('slug') is-invalid @enderror"
-                                id="slug"
-                                name="slug"
-                                placeholder="Slug otomatis dari nama"
-                                value="{{ old('slug', $category->slug) }}"
-                            >
+                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug"
+                                name="slug" placeholder="Slug otomatis dari nama"
+                                value="{{ old('slug', $category->slug) }}">
                             @error('slug')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -60,20 +49,5 @@
         </div>
     </div>
 
-    <script>
-        // Auto-generate slug from name
-        const nameInput = document.getElementById('name');
-        if (nameInput) {
-            nameInput.addEventListener('keyup', function() {
-                const name = this.value;
-                const slug = name
-                    .toLowerCase()
-                    .trim()
-                    .replace(/[^\w\s-]/g, '')
-                    .replace(/[\s_]+/g, '-')
-                    .replace(/^-+|-+$/g, '');
-                document.getElementById('slug').value = slug;
-            });
-        }
-    </script>
+
 @endsection
