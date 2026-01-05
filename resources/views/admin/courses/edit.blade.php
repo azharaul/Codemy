@@ -1,126 +1,112 @@
 @extends('layout.admin')
-@section('content')
-    <h1 class="mt-4">Edit Kursus</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="{{ route('courses.index') }}">Kursus</a></li>
-        <li class="breadcrumb-item active">Edit</li>
-    </ol>
 
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="card mb-4">
-                <div class="card-header">Form Edit Kursus: {{ $course->name }}</div>
-                <div class="card-body">
+@section('content')
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Edit Kursus</h1>
+    </div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{{ route('courses.index') }}">Kursus</a></li>
+            <li class="breadcrumb-item active">Edit</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-header bg-white py-3 border-bottom-0">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-3"
+                            style="width: 40px; height: 40px;">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Edit Kursus</h6>
+                            <small class="text-muted">Mengubah data kursus: <strong>{{ $course->name }}</strong></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
                     <form action="{{ route('courses.update', $course->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama Kursus</label>
-                            <input 
-                                type="text" 
-                                class="form-control @error('name') is-invalid @enderror" 
-                                id="name" 
-                                name="name" 
-                                placeholder="Masukkan nama kursus"
-                                value="{{ old('name', $course->name) }}"
-                                required
-                            >
-                            @error('name')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-bold small text-uppercase text-muted"><i
+                                        class="fas fa-heading me-1"></i> Nama Kursus</label>
+                                <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                    name="name" value="{{ old('name', $course->name) }}" required>
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-bold small text-uppercase text-muted"><i
+                                        class="fas fa-link me-1"></i> Slug</label>
+                                <input type="text" class="form-control form-control-lg @error('slug') is-invalid @enderror"
+                                    name="slug" value="{{ old('slug', $course->slug) }}">
+                                @error('slug')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input 
-                                type="text" 
-                                class="form-control @error('slug') is-invalid @enderror" 
-                                id="slug" 
-                                name="slug" 
-                                placeholder="Slug"
-                                value="{{ old('slug', $course->slug) }}"
-                            >
-                            @error('slug')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-bold small text-uppercase text-muted"><i
+                                        class="fas fa-tag me-1"></i> Kategori</label>
+                                <select class="form-select @error('category_id') is-invalid @enderror" name="category_id"
+                                    required>
+                                    <option value="">-- Pilih Kategori --</option>
+                                    @foreach(\App\Models\Category::all() as $category)
+                                        <option value="{{ $category->id }}" {{ old('category_id', $course->category_id) == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-bold small text-uppercase text-muted"><i
+                                        class="fas fa-chalkboard-teacher me-1"></i> Pengajar</label>
+                                <select class="form-select @error('teacher_id') is-invalid @enderror" name="teacher_id"
+                                    required>
+                                    <option value="">-- Pilih Guru --</option>
+                                    @foreach(\App\Models\User::where('role', 'teacher')->get() as $teacher)
+                                        <option value="{{ $teacher->id }}" {{ old('teacher_id', $course->teacher_id) == $teacher->id ? 'selected' : '' }}>
+                                            {{ $teacher->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('teacher_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="about" class="form-label">Deskripsi</label>
-                            <textarea 
-                                class="form-control @error('about') is-invalid @enderror" 
-                                id="about" 
-                                name="about" 
-                                rows="4" 
-                                placeholder="Deskripsi kursus"
-                                required
-                            >{{ old('about', $course->about) }}</textarea>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small text-uppercase text-muted"><i
+                                    class="fas fa-align-left me-1"></i> Deskripsi Singkat</label>
+                            <textarea class="form-control @error('about') is-invalid @enderror" name="about" rows="4"
+                                required>{{ old('about', $course->about) }}</textarea>
                             @error('about')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="category_id" class="form-label">Kategori</label>
-                            <select 
-                                class="form-control @error('category_id') is-invalid @enderror" 
-                                id="category_id" 
-                                name="category_id"
-                                required
-                            >
-                                <option value="">Pilih Kategori</option>
-                                @foreach(\App\Models\Category::all() as $category)
-                                    <option 
-                                        value="{{ $category->id }}" 
-                                        {{ old('category_id', $course->category_id) == $category->id ? 'selected' : '' }}
-                                    >
-                                        {{ $category->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('category_id')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="teacher_id" class="form-label">Guru</label>
-                            <select 
-                                class="form-control @error('teacher_id') is-invalid @enderror" 
-                                id="teacher_id" 
-                                name="teacher_id"
-                                required
-                            >
-                                <option value="">Pilih Guru</option>
-                                @foreach(\App\Models\User::where('role', 'teacher')->get() as $teacher)
-                                    <option 
-                                        value="{{ $teacher->id }}" 
-                                        {{ old('teacher_id', $course->teacher_id) == $teacher->id ? 'selected' : '' }}
-                                    >
-                                        {{ $teacher->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('teacher_id')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="thumbnail" class="form-label">Thumbnail</label>
-                            <input 
-                                type="text" 
-                                class="form-control @error('thumbnail') is-invalid @enderror" 
-                                id="thumbnail" 
-                                name="thumbnail" 
-                                placeholder="URL thumbnail gambar"
-                                value="{{ old('thumbnail', $course->thumbnail) }}"
-                            >
-                            <small class="form-text text-muted">Contoh: https://placehold.co/600x400</small>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small text-uppercase text-muted"><i
+                                    class="fas fa-image me-1"></i> URL Thumbnail</label>
+                            <input type="text" class="form-control @error('thumbnail') is-invalid @enderror"
+                                name="thumbnail" value="{{ old('thumbnail', $course->thumbnail) }}">
                             @if($course->thumbnail)
-                                <div class="mt-2">
-                                    <img src="{{ $course->thumbnail }}" alt="{{ $course->name }}" style="max-width: 200px;" class="img-thumbnail">
+                                <div class="mt-2 text-center">
+                                    <img src="{{ $course->thumbnail }}" alt="Preview" class="img-thumbnail rounded shadow-sm"
+                                        style="max-height: 150px;">
                                 </div>
                             @endif
                             @error('thumbnail')
@@ -128,19 +114,17 @@
                             @enderror
                         </div>
 
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Update
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="{{ route('courses.index') }}" class="btn btn-light px-4">Batal</a>
+                            <button type="submit" class="btn btn-warning px-4 fw-semibold text-white">
+                                <i class="fas fa-save me-1"></i> Update Kursus
                             </button>
-                            <a href="{{ route('courses.index') }}" class="btn btn-secondary">
-                                <i class="fas fa-times"></i> Batal
-                            </a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
 @endsection

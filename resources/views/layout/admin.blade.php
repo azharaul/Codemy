@@ -58,23 +58,23 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="{{ route('dashboard') }}">
+                        <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Kelola Kursus</div>
-                        <a class="nav-link" href="{{ route('categories.index') }}">
+                        <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
                             Kategori
                         </a>
-                        <a class="nav-link" href="{{ route('courses.index') }}">
+                        <a class="nav-link {{ request()->routeIs('courses.*') || request()->routeIs('lessons.*') ? 'active' : '' }}" href="{{ route('courses.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Kursus
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Admin</div>
-                        <a class="nav-link" href="{{ route('users.index') }}">
+                        <a class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}" href="{{ route('users.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Manage Users
                         </a>
