@@ -12,32 +12,11 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Link ke CSS SB Admin (Bisa diganti atau dicustom, kita pakai base-nya saja tapi dimodifikasi inline) -->
-    <link href="{{ asset('startbootstrap-sb-admin-gh-pages/css/styles.css') }}" rel="stylesheet" />
+    <!-- Link ke CSS Bootstrap 5 (Ganti local Styles) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .navbar-brand {
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            font-size: 1.5rem;
-        }
-        .nav-link {
-            font-weight: 500;
-        }
-        main {
-            min-height: 80vh;
-        }
-        /* Custom Footer */
-        footer {
-            background-color: #fff;
-            border-top: 1px solid #e9ecef;
-        }
-    </style>
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -45,16 +24,24 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm sticky-top">
             <div class="container px-5">
-                <a class="navbar-brand text-primary" href="{{ route('front.index') }}">
+                <a class="navbar-brand fw-bold text-primary" href="{{ route('front.index') }}">
                     <i class="fas fa-code me-2"></i>Codemy
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-4">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('front.index') }}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Kategori</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Tentang Kami</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('front.index') ? 'active text-primary fw-bold' : '' }}" href="{{ route('front.index') }}">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('front.course*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('front.course.index') }}">Kursus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('front.category*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('front.category.index') }}">Kategori</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('front.about') ? 'active text-primary fw-bold' : '' }}" href="{{ route('front.about') }}">Tentang Kami</a>
+                        </li>
                     </ul>
                     
                     @if (Route::has('login'))
@@ -65,8 +52,10 @@
                                         <i class="fas fa-user-circle me-1"></i> {{ Auth::user()->name }}
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt me-2 text-muted"></i> Dashboard</a></li>
-                                        <li><hr class="dropdown-divider"></li>
+                                       <!-- Hanya Teacher yang butuh akses ke Dashboard Admin -->
+                                        @if(Auth::user()->role === 'teacher')
+                                            <li><a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt me-2 text-muted"></i> Dashboard</a></li>
+                                        @endif<li><hr class="dropdown-divider"></li>
                                         <li>
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
@@ -110,6 +99,5 @@
     
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('startbootstrap-sb-admin-gh-pages/js/scripts.js') }}"></script>
 </body>
 </html>

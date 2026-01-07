@@ -6,6 +6,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\FrontCourseController;
+
 
 
 Route::get('/', function () {
@@ -24,7 +27,22 @@ Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/checkout/{course:slug}', [TransactionController::class, 'create'])
+        ->name('front.checkout');
+    Route::post('/checkout/{course:slug}', [TransactionController::class, 'store'])
+        ->name('front.checkout.store');
+});
 
+Route::middleware(['auth', 'check-course-ownership'])->group(function () {
+    Route::get('/learning/{course:slug}', [FrontCourseController::class, 'show'])->name('front.learning');
+});
+
+// Publc Pages (New)
+Route::get('/courses', [FrontCourseController::class, 'index'])->name('front.course.index');
+Route::get('/category', [App\Http\Controllers\FrontCategoryController::class, 'index'])->name('front.category.index');
+Route::get('/category/{category:slug}', [App\Http\Controllers\FrontCategoryController::class, 'show'])->name('front.category.show');
+Route::view('/about', 'front.about')->name('front.about');
 
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {

@@ -25,34 +25,27 @@ class User extends Authenticatable
         'role'
     ];
 
-    public function courses(){//kalau role nya student, maka akan menghubungkan ke course_student
-        return $this->belongsToMany(Course::class, 'course_students');//course_students adalah nama tabel transaksi
+    public function courses()
+    { //kalau role nya student, maka akan menghubungkan ke course_student
+        return $this->belongsToMany(Course::class, 'course_students'); //course_students adalah nama tabel transaksi
         //1 user bisa mengikuti banyak kursus
     }
-    
-    public function teaching(){//kalau role nya teacher, maka akan menghubungkan ke course_teacher
+
+    public function teaching()
+    { //kalau role nya teacher, maka akan menghubungkan ke course_teacher
         return $this->hasMany(Course::class, 'teacher_id');
         //1 teacher bisa mengajar banyak kursus
     }
 
-    public function transactions(){
+    public function transactions()
+    {
         return $this->hasMany(Transaction::class);
         //1 user bisa memiliki banyak transaksi
     }
 
-    public function berlangganan(){
-        //mencari transaksi terakhir yang sudah dibayar
-        $transaksiTerakhir = $this->transactions()->where('is_paid', true)->latest()->first();
-        
-        //jika tidak ada transaksi terakhir yang sudah dibayar
-        if(!$transaksiTerakhir){
-            return false;
-        }
-
-        $tanggalBerlanggananBerakhir = \Carbon\Carbon::parse($transaksiTerakhir->subscription_start_date)->addMonths();
-
-        return \Carbon\Carbon::now()->lessThan($tanggalBerlanggananBerakhir);
-        //mengembalikan true jika tanggal berlangganan belum berakhir
+    public function hasActiveCourse($course_id)
+    {
+        return $this->courses()->where('course_id', $course_id)->exists();
     }
     /**
      * The attributes that should be hidden for serialization.

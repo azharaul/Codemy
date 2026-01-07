@@ -51,15 +51,14 @@
                                     <select class="form-select form-select-lg @error('occupation') is-invalid @enderror"
                                         id="inputOccupation" name="occupation" required>
                                         <option selected disabled value="">Pilih...</option>
-                                        <option value="Pelajar" {{ old('occupation') == 'Pelajar' ? 'selected' : '' }}>
-                                            Pelajar</option>
+                                        <option value="Pelajar" {{ old('occupation') == 'Pelajar' ? 'selected' : '' }}>Pelajar</option>
                                         <option value="Mahasiswa" {{ old('occupation') == 'Mahasiswa' ? 'selected' : '' }}>Mahasiswa</option>
+                                        <option value="Karyawan" {{ old('occupation') == 'Karyawan' ? 'selected' : '' }}>Karyawan</option>
                                         <option value="Developer" {{ old('occupation') == 'Developer' ? 'selected' : '' }}>Developer</option>
                                         <option value="Dosen/Guru" {{ old('occupation') == 'Dosen/Guru' ? 'selected' : '' }}>Dosen/Guru</option>
-                                        <option value="Designer" {{ old('occupation') == 'Designer' ? 'selected' : '' }}>
-                                            Designer</option>
-                                        <option value="Lainya" {{ old('occupation') == 'Lainya' ? 'selected' : '' }}>
-                                            Lainnya</option>
+                                        <option value="Designer" {{ old('occupation') == 'Designer' ? 'selected' : '' }}>Designer</option>
+                                        <option value="Influencer" {{ old('occupation') == 'Influencer' ? 'selected' : '' }}>Influencer</option>
+                                        <option value="Lainya" {{ old('occupation') == 'Lainya' ? 'selected' : '' }}>Lainnya</option>
                                     </select>
                                     @error('occupation')
                                         <div class="invalid-feedback">{{ $message }}</div>

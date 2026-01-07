@@ -34,7 +34,7 @@
                             <div class="col-md-6 mb-4">
                                 <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-heading me-1"></i> Nama Kursus</label>
                                 <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" 
-                                    name="name" placeholder="Contoh: Master Laravel 10" value="{{ old('name') }}" required>
+                                    name="name" placeholder="Nama Kursus..." value="{{ old('name') }}" required>
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -42,7 +42,7 @@
                             <div class="col-md-6 mb-4">
                                 <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-link me-1"></i> Slug</label>
                                 <input type="text" class="form-control form-control-lg @error('slug') is-invalid @enderror" 
-                                    name="slug" placeholder="Otomatis (Opsional)" value="{{ old('slug') }}">
+                                    name="slug" placeholder="Slug (Opsional)" value="{{ old('slug') }}">
                                 @error('slug')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

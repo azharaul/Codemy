@@ -1,29 +1,25 @@
 @extends('layout.front')
 
 @section('content')
-    <!-- Header-->
+
     <header class="bg-dark py-5">
         <div class="container px-5">
-            <div class="row gx-5 align-items-center justify-content-center">
-                <div class="col-lg-8 col-xl-7 col-xxl-6">
-                    <div class="my-5 text-center text-xl-start">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-10">
+                    <div class="my-5 text-start">
                         <h1 class="display-5 fw-bold text-white mb-2">Bangun Karirmu Sebagai Developer Handal</h1>
                         <p class="lead fw-normal text-white-50 mb-4">Pelajari skill coding terkini dengan kurikulum
                             industri. Mulai dari HTML, CSS, Laravel, hingga React. Belajar kapan saja, di mana saja.</p>
-                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3 fw-bold" href="#features">Mulai Belajar</a>
-                            <a class="btn btn-outline-light btn-lg px-4 fw-bold" href="#">Lihat Silabus</a>
+                        <div class="d-grid gap-3 d-sm-flex">
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3 fw-bold" href="#courses">Mulai Belajar</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-                    <img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Features section-->
+
     <section class="py-5" id="features">
         <div class="container px-5 my-5">
             <div class="row gx-5">
@@ -64,8 +60,8 @@
         </div>
     </section>
 
-    <!-- Courses Preview Section-->
-    <section class="py-5 bg-light">
+
+    <section class="py-5 bg-light" id="courses">
         <div class="container px-5 my-5">
             <div class="text-center mb-5">
                 <h2 class="fw-bolder">Kursus Terbaru</h2>
@@ -81,9 +77,24 @@
                             <div class="card-body p-4">
                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">
                                     {{ $course->category->name ?? 'Programming' }}</div>
-                                <a class="text-decoration-none link-dark stretched-link" href="#!">
-                                    <h5 class="card-title mb-3">{{ $course->name }}</h5>
-                                </a>
+                                
+                                @auth
+                                    @if(Auth::user()->hasActiveCourse($course->id))
+                                        <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.learning', $course->slug) }}">
+                                            <h5 class="card-title mb-3">{{ $course->name }}</h5>
+                                            <span class="badge bg-success">Akses Materi</span>
+                                        </a>
+                                    @else
+                                        <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.checkout', $course->slug) }}">
+                                            <h5 class="card-title mb-3">{{ $course->name }}</h5>
+                                            <span class="badge bg-warning text-dark">Beli Kursus</span>
+                                        </a>
+                                    @endif
+                                @else
+                                    <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.checkout', $course->slug) }}">
+                                        <h5 class="card-title mb-3">{{ $course->name }}</h5>
+                                    </a>
+                                @endauth
                                 <p class="card-text mb-0 text-muted small">{{ Str::limit($course->about, 80) }}</p>
                             </div>
                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -110,21 +121,4 @@
         </div>
     </section>
 
-    <!-- Call to action-->
-    <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
-        <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-            <div class="mb-4 mb-xl-0">
-                <div class="fs-3 fw-bold text-white">Siap untuk memulai karir barumu?</div>
-                <div class="text-white-50">Daftar sekarang dan akses materi gratis selamanya.</div>
-            </div>
-            <div class="ms-xl-4">
-                <div class="input-group mb-2">
-                    <input class="form-control" type="text" placeholder="Email address..." aria-label="Email address..."
-                        aria-describedby="button-newsletter" />
-                    <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
-                </div>
-                <div class="small text-white-50">Kami menjaga privasi data Anda.</div>
-            </div>
-        </div>
-    </aside>
 @endsection

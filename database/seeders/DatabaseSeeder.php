@@ -16,54 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Buat User Penting
-        $owner = User::create([
-            'name' => 'Principal Tester',
-            'email' => 'principal@codemy.com',
-            'password' => bcrypt('admin123'),
-            'occupation' => 'Kepala Sekolah',
-            'role' => 'teacher',
-        ]);
-
-        $teacher = User::create([
-            'name' => 'Teacher Tester',
-            'email' => 'teacher@codemy.com',
-            'password' => bcrypt('admin123'),
-            'occupation' => 'Web Developer',
-            'role' => 'teacher',
-        ]);
-        $student = User::create([
-            'name' => 'Student Tester',
-            'email' => 'askhabul@codemy.com',
-            'password' => bcrypt('admin123'),
-            'occupation' => 'Pelajar',
-            'role' => 'student',
-        ]);
-        // 2. Buat Kategori
-        $cat1 = Category::create(['name' => 'Web Development', 'slug' => 'web-programming']);
-        $cat2 = Category::create(['name' => 'Database', 'slug' => 'database']);
-        Category::create(['name' => 'Game Development', 'slug' => 'game-development']);
-        // 3. Buat Kursus (Oleh Pak Budi, Kategori Programming)
-        $courseLaravel = Course::create([
-            'name' => 'Belajar Laravel 11 dari Nol',
-            'slug' => 'belajar-laravel-11-dari-nol',
-            'about' => 'Kursus lengkap untuk pemula banget.',
-            'thumbnail' => 'https://placehold.co/600x400', // Gambar placeholder
-            'teacher_id' => $teacher->id,
-            'category_id' => $cat1->id,
-        ]);
-        // 4. Buat Lessons (Untuk Kursus Laravel tadi)
-        Lesson::create([
-            'name' => 'Intro & Instalasi',
-            'slug' => 'intro-instalasi',
-            'video_url' => 'https://youtu.be/video1', // Contoh link
-            'course_id' => $courseLaravel->id,
-        ]);
-        Lesson::create([
-            'name' => 'Membuat Route & Controller',
-            'slug' => 'membuat-route-controller',
-            'video_url' => 'https://youtu.be/video2',
-            'course_id' => $courseLaravel->id,
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            CourseSeeder::class,
         ]);
     }
 }

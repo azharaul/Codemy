@@ -1,7 +1,7 @@
 @extends('layout.front')
 
 @section('content')
-    <!-- Header-->
+ 
     <header class="bg-primary bg-gradient text-white py-5">
         <div class="container px-5 text-center">
             <h1 class="display-5 fw-bold mb-2">Investasi Terbaik untuk Masa Depanmu</h1>
@@ -9,11 +9,11 @@
         </div>
     </header>
 
-    <!-- Pricing section-->
+
     <section class="py-5 bg-light">
         <div class="container px-5 my-5">
             <div class="row gx-5 justify-content-center">
-                <!-- Pricing card free-->
+      
                 <div class="col-lg-6 col-xl-4">
                     <div class="card mb-5 mb-xl-0 border-0 shadow-sm h-100">
                         <div class="card-body p-5">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pricing card pro-->
+
                 <div class="col-lg-6 col-xl-4">
                     <div class="card mb-5 mb-xl-0 border-0 shadow-lg h-100 transform-scale-sm">
                         <div class="card-header bg-primary text-white text-center py-3 fw-bold">Paling Populer</div>
@@ -58,11 +58,12 @@
                                 <li class="mb-2 text-muted text-decoration-line-through"><i
                                         class="fas fa-times me-2"></i>Mentoring privat</li>
                             </ul>
-                            <div class="d-grid"><a class="btn btn-primary fw-bold" href="#">Berlangganan Pro</a></div>
+                            <div class="d-grid"><a class="btn btn-primary fw-bold"
+                                    href="{{ route('subscribe.create') }}">Berlangganan Pro</a></div>
                         </div>
                     </div>
                 </div>
-                <!-- Pricing card enterprise-->
+  
                 <div class="col-lg-6 col-xl-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-5">

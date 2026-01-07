@@ -9,125 +9,92 @@
     <meta name="author" content="" />
     <title>Dashboard - Codemy Admin</title>
 
-    <!-- Link ke CSS SB Admin -->
-    <link href="{{ asset('startbootstrap-sb-admin-gh-pages/css/styles.css') }}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+
+
 </head>
 
-<body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="#">Codemy</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                    aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
-            </div>
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm sticky-top">
+        <div class="container px-5">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand fw-bold text-primary" href="{{ route('front.index') }}">
+                <i class="fas fa-code me-2"></i>Codemy <span class="badge bg-primary text-white fs-6 align-middle ms-1">Admin</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-4 fw-medium">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('dashboard') ? 'active text-primary fw-bold' : '' }}" href="{{ route('dashboard') }}">Beranda</a>
                     </li>
-                    <li>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="dropdown-item">Logout</button>
-                        </form>
-                        {{-- <a class="dropdown-item" href="{{ route('logout') }}">Logout</a> --}}
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('courses.*') || request()->routeIs('lessons.*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('courses.index') }}">Kursus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('categories.*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('categories.index') }}">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('users.*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('users.index') }}">Siswa</a>
                     </li>
                 </ul>
-            </li>
-        </ul>
+
+                <div class="dropdown">
+                    <a class="btn btn-outline-primary dropdown-toggle rounded-pill px-4" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ route('front.index') }}"><i class="fas fa-home me-2 text-muted"></i> Halaman Depan</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="dropdown-item text-danger"><i class="fas fa-sign-out-alt me-2"></i> Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </nav>
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Dashboard
-                        </a>
 
-                        <div class="sb-sidenav-menu-heading">Kelola Kursus</div>
-                        <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
-                            Kategori
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('courses.*') || request()->routeIs('lessons.*') ? 'active' : '' }}" href="{{ route('courses.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Kursus
-                        </a>
-
-                        <div class="sb-sidenav-menu-heading">Admin</div>
-                        <a class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}" href="{{ route('users.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                            Manage Users
-                        </a>
-                    </div>
+    <main class="flex-grow-1 py-5">
+        <div class="container">
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 rounded-3 mb-4" role="alert">
+                    <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            </nav>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3 mb-4" role="alert">
+                     <i class="fas fa-exclamation-triangle me-2"></i> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @yield('content')
         </div>
+    </main>
 
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    @if(session('success'))
-                        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-
-                    @if(session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                            {{ session('error') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-
-                    @yield('content')
-                </div>
-            </main>
-
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Codemy 2025</div>
-                    </div>
-                </div>
-            </footer>
+    <footer class="py-4 bg-white mt-auto border-top">
+        <div class="container">
+            <div class="text-center text-muted small">Copyright &copy; Codemy - Admin Panel {{ date('Y') }}</div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Script JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="{{ asset('startbootstrap-sb-admin-gh-pages/js/scripts.js') }}"></script>
     <script>
-        // Auto-close bootstrap alerts after 5 seconds
-        document.addEventListener('DOMContentLoaded', function () {
-            setTimeout(function () {
-                var alerts = document.querySelectorAll('.alert');
-                alerts.forEach(function (el) {
-                    try { var bsAlert = new bootstrap.Alert(el); bsAlert.close(); } catch (e) { /* ignore */ }
-                });
-            }, 5000);
-        });
+
     </script>
 </body>
 

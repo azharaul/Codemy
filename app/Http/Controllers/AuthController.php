@@ -35,9 +35,9 @@ class AuthController extends Controller
             'role' => 'student'
         ]);
 
-        Auth::login($user); // Auto login
+        Auth::login($user);
 
-        return redirect()->intended('/admin/dashboard');
+        return redirect()->route('front.index');
     }
 
     public function login(Request $request)

@@ -18,11 +18,16 @@ class Transaction extends Model
         'is_paid',
         'proof',
         'subscription_start_date',
-        'user_id'
+        'user_id',
+        'course_id' // Added for Pay-Per-Course
     ];
 
     public function user(){
         // 1 transaksi harus dimiliki oleh 1 user
         return $this->belongsTo(User::class);
+    }
+
+    public function course(){
+        return $this->belongsTo(Course::class);
     }
 }
