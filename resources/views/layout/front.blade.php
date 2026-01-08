@@ -55,7 +55,9 @@
                                        <!-- Hanya Teacher yang butuh akses ke Dashboard Admin -->
                                         @if(Auth::user()->role === 'teacher')
                                             <li><a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt me-2 text-muted"></i> Dashboard</a></li>
-                                        @endif<li><hr class="dropdown-divider"></li>
+                                        @endif
+                                        <li><a class="dropdown-item" href="{{ route('front.my_courses') }}"><i class="fas fa-book me-2 text-muted"></i> Kelas Saya</a></li>
+                                        <li><hr class="dropdown-divider"></li>
                                         <li>
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf

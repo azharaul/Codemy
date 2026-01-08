@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('subscribe_transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('course_id')->nullable()->constrained()->cascadeOnDelete();
             $table->unsignedBigInteger('total_amount');
             $table->boolean('is_paid');
             $table->string('proof')->nullable(); // Bukti bayar boleh kosong dulu

@@ -11,10 +11,7 @@ use App\Http\Controllers\FrontCourseController;
 
 
 
-Route::get('/', function () {
-    $courses = \App\Models\Course::with('teacher', 'category')->latest()->take(3)->get();
-    return view('front.index', compact('courses'));
-})->name('front.index');
+Route::get('/', [\App\Http\Controllers\FrontHomeController::class, 'index'])->name('front.index');
 
 Route::get('/pricing', function () {
     return view('front.pricing');
@@ -28,6 +25,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/my-courses', [\App\Http\Controllers\StudentController::class, 'index'])->name('front.my_courses');
     Route::get('/checkout/{course:slug}', [TransactionController::class, 'create'])
         ->name('front.checkout');
     Route::post('/checkout/{course:slug}', [TransactionController::class, 'store'])

@@ -116,7 +116,7 @@
                 @endforelse
             </div>
             <div class="text-center mt-4">
-                <a href="#" class="btn btn-outline-primary fw-bold px-4">Lihat Semua Kursus</a>
+                <a href="{{ route('front.course.index') }}" class="btn btn-outline-primary fw-bold px-4">Lihat Semua Kursus</a>
             </div>
         </div>
     </section>

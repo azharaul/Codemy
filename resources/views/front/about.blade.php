@@ -23,7 +23,8 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <img class="img-fluid rounded-3 shadow-lg" src="https://dummyimage.com/600x400/343a40/6c757d" alt="About Us" />
+            <!-- <img class="img-fluid rounded-3 shadow-lg" src="https://dummyimage.com/600x400/343a40/6c757d" alt="About Us" /> -->
+            <img class="img-fluid rounded-3 shadow-lg" src="{{asset('img/creator.jpeg')}}" alt="About Us" style="width: 600px; height: 400px; object-fit: cover;" />
         </div>
     </div>
 </div>
