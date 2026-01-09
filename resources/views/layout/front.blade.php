@@ -9,10 +9,7 @@
     <meta name="author" content="Codemy" />
     <title>Codemy - Belajar Koding Mulai Dari Sini</title>
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Link ke CSS Bootstrap 5 (Ganti local Styles) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     
@@ -21,7 +18,6 @@
 
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
-        <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm sticky-top">
             <div class="container px-5">
                 <a class="navbar-brand fw-bold text-primary" href="{{ route('front.index') }}">
@@ -78,12 +74,10 @@
             </div>
         </nav>
         
-        <!-- Page Content-->
         @yield('content')
         
     </main>
 
-    <!-- Footer-->
     <footer class="py-5 mt-auto">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
@@ -99,7 +93,6 @@
         </div>
     </footer>
     
-    <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

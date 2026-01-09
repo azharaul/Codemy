@@ -12,7 +12,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Buat User Penting
         User::create([
             'name' => 'Azhar Aulia Priatna',
             'email' => 'azharaulia@gmail.com',

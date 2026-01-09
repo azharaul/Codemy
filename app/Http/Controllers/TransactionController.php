@@ -47,14 +47,12 @@ class TransactionController extends Controller
             Transaction::create([
                 'user_id' => $user->id,
                 'course_id' => $course->id,
-                'total_amount' => 99000, // Idealnya ambil dari $course->price
+                'total_amount' => 99000,
                 'is_paid' => true,
                 'proof' => $proofPath,
                 'subscription_start_date' => now()
             ]);
 
-            // 2. Masukkan siswa ke kelas (Enrollment)
-            // Cek dulu biar nggak duplikat
             if(!$course->students()->where('user_id', $user->id)->exists()){
                  $user->courses()->attach($course->id);
             }

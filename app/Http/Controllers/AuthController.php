@@ -31,7 +31,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'occupation' => $request->occupation,
             'email' => $request->email,
-            'password' => bcrypt($request->password), // Encrypt password
+            'password' => bcrypt($request->password), 
             'role' => 'student'
         ]);
 
@@ -44,7 +44,7 @@ class AuthController extends Controller
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required'], //required harus diisi
+            'password' => ['required'], 
         ]);
 
         if (Auth::attempt($credentials)) {

@@ -21,7 +21,6 @@
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm sticky-top">
         <div class="container px-5">
-            <!-- Navbar Brand-->
             <a class="navbar-brand fw-bold text-primary" href="{{ route('front.index') }}">
                 <i class="fas fa-code me-2"></i>Codemy <span class="badge bg-primary text-white fs-6 align-middle ms-1">Admin</span>
             </a>

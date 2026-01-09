@@ -16,18 +16,14 @@ class CheckCourseOwnership
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // 1. Cek Login
         if (!Auth::check()) {
             return redirect()->route('login');
         }
 
         $user = Auth::user();
         
-        // 2. Ambil parameter kursus dari Route
-        // Route kita: /learning/{course} -> jadi parameternya 'course' (ID)
         $course = $request->route('course');
 
-        // 3. Cek apakah user terdaftar di kursus ini?
         if (!$course->students()->where('user_id', $user->id)->exists()) {
             return redirect()->route('front.checkout', $course)->with('error', 'Anda harus membeli kursus ini terlebih dahulu.');
         }

@@ -36,7 +36,6 @@ Route::middleware(['auth', 'check-course-ownership'])->group(function () {
     Route::get('/learning/{course}', [FrontCourseController::class, 'show'])->name('front.learning');
 });
 
-// Publc Pages (New)
 Route::get('/courses', [FrontCourseController::class, 'index'])->name('front.course.index');
 Route::get('/category', [App\Http\Controllers\FrontCategoryController::class, 'index'])->name('front.category.index');
 Route::get('/category/{category}', [App\Http\Controllers\FrontCategoryController::class, 'show'])->name('front.category.show');

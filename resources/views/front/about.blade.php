@@ -5,8 +5,9 @@
     <div class="row align-items-center gx-5">
         <div class="col-lg-6 mb-5 mb-lg-0">
             <h1 class="fw-bolder display-5 mb-4">Tentang Codemy</h1>
-            <p class="lead fw-normal text-muted mb-4">Codemy adalah platform belajar coding online yang didedikasikan untuk membantu talenta Indonesia menjadi developer kelas dunia.</p>
-            <p class="text-muted mb-4">Kami percaya bahwa pendidikan berkualitas harus dapat diakses oleh siapa saja. Kurikulum kami dirancang oleh praktisi industri untuk memastikan materi yang relevan dan siap kerja.</p>
+            {{-- <p class="lead fw-normal text-muted mb-4">Codemy adalah platform belajar coding online yang didedikasikan untuk membantu talenta Indonesia menjadi developer kelas dunia.</p> --}}
+            <p class="lead fw-normal text-muted mb-4">Codemy adalah platform belajar coding online yang dibuat oleh sekelompok pemuda yang hobinya nongkrong yang didedikasikan untuk membantu talenta Indonesia menjadi Raja Koding.</p>
+            <p class="text-muted mb-4">Kami percaya bahwa pendidikan berkualitas itu harus sedia kopi supaya semangat dan ga ngantuk. Kurikulum kami dirancang oleh anak tongkrongan untuk memastikan materi yang relevan dan siap kerja.</p>
             <div class="d-flex gap-3">
                 <div class="d-flex align-items-center">
                     <div class="icon-feature bg-primary bg-gradient rounded-circle text-white me-3 p-2">
@@ -18,7 +19,7 @@
                     <div class="icon-feature bg-primary bg-gradient rounded-circle text-white me-3 p-2">
                         <i class="fas fa-check"></i>
                     </div>
-                    <span>Mentor Expert</span>
+                    <span>Mentor Kalcer</span>
                 </div>
             </div>
         </div>

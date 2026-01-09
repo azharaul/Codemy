@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-5">
     <div class="row">
-        <!-- Sidebar Materi (Kiri) -->
+
         <div class="col-lg-4 mb-4">
             <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
                 <div class="card-header bg-white py-3">
@@ -27,10 +27,9 @@
             </div>
         </div>
 
-        <!-- Video Player (Kanan) -->
         <div class="col-lg-8">
             <div class="card shadow rounded-4 overflow-hidden mb-4">
-                <!-- Logic untuk menampilkan video yang dipilih -->
+               
                 @php
                     $currentLessonId = request('lesson');
                     $currentLesson = $course->lessons->firstWhere('id', $currentLessonId) ?? $course->lessons->first();
@@ -38,8 +37,6 @@
 
                 @if($currentLesson)
                     <div class="ratio ratio-16x9 bg-dark">
-                        <!-- Disini kita pakai iframe untuk YouTube, atau video tag untuk local -->
-                        <!-- Contoh support YouTube Embed -->
                         <iframe src="https://www.youtube.com/embed/{{ $currentLesson->video_id ?? 'dQw4w9WgXcQ' }}" title="YouTube video player" allowfullscreen></iframe>
                     </div>
                     <div class="card-body p-4">
@@ -58,7 +55,7 @@
                 @endif
             </div>
 
-            <!-- Author Info -->
+
             <div class="card border-0 shadow-sm rounded-4 p-4">
                 <div class="d-flex align-items-center gap-3">
                     <img src="https://ui-avatars.com/api/?name={{ $course->teacher->name }}&background=random" class="rounded-circle" width="50" height="50">

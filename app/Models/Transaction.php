@@ -9,8 +9,7 @@ class Transaction extends Model
 {
     use HasFactory;
     
-    // Memberitahu Laravel bahwa tabel kita namanya 'subscribe_transactions'
-    // (Bukan 'transactions')
+    
     protected $table = 'subscribe_transactions';
 
     protected $fillable = [

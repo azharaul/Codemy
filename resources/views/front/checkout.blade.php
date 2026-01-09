@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body p-5">
                     
-                    <!-- Rincian Pembayaran -->
+                  
                     <div class="alert alert-light border mb-4">
                         <h6 class="fw-bold text-muted mb-3">Kursus yang akan dibeli:</h6>
                         <div class="d-flex align-items-center gap-3">
@@ -31,7 +31,6 @@
                     <form action="{{ route('front.checkout.store', $course) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
-                        <!-- Bukti Bayar -->
                         <div class="mb-4">
                             <label class="form-label fw-bold small text-uppercase text-muted">Upload Bukti Transfer (Opsional)</label>
                             <input type="file" name="proof" class="form-control form-control-lg @error('proof') is-invalid @enderror">

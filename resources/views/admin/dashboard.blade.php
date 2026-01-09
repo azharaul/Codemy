@@ -15,7 +15,6 @@
     </div>
 
     <div class="row g-4 mb-4">
-        <!-- Card 1: Siswa -->
         <div class="col-xl-4 col-md-6">
             <div class="card border-0 shadow-sm rounded-3 h-100 overflow-hidden">
                 <div class="card-body position-relative">
@@ -37,7 +36,6 @@
             </div>
         </div>
 
-        <!-- Card 2: Kursus -->
         <div class="col-xl-4 col-md-6">
             <div class="card border-0 shadow-sm rounded-3 h-100 overflow-hidden">
                 <div class="card-body position-relative">
@@ -59,7 +57,6 @@
             </div>
         </div>
 
-        <!-- Card 3: Kategori -->
         <div class="col-xl-4 col-md-6">
             <div class="card border-0 shadow-sm rounded-3 h-100 overflow-hidden">
                 <div class="card-body position-relative">
