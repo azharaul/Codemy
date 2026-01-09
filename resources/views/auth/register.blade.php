@@ -8,7 +8,7 @@
     <meta name="description" content="Register to Codemy" />
     <meta name="author" content="Codemy" />
     <title>Daftar - Codemy</title>
-    <link href="{{ asset('startbootstrap-sb-admin-gh-pages/css/styles.css') }}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
         body {
