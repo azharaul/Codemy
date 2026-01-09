@@ -28,7 +28,7 @@
                          </div>
                     </div>
 
-                    <form action="{{ route('front.checkout.store', $course->slug) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('front.checkout.store', $course) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
                         <!-- Bukti Bayar -->

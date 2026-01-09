@@ -31,7 +31,7 @@ class CourseController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:courses',
+
             'about' => 'required|string',
             'thumbnail' => 'nullable|string',
             'teacher_id' => 'required|exists:users,id',
@@ -70,7 +70,7 @@ class CourseController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:courses,slug,' . $id,
+
             'about' => 'required|string',
             'thumbnail' => 'nullable|string',
             'teacher_id' => 'required|exists:users,id',

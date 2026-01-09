@@ -43,17 +43,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-4">
-                            <label class="form-label fw-bold small text-uppercase text-muted"><i
-                                    class="fas fa-link me-1"></i> Slug</label>
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug"
-                                name="slug" placeholder="Slug otomatis dari nama"
-                                value="{{ old('slug', $category->slug) }}">
-                            <div class="form-text">Biarkan kosong jika ingin slug dibuat otomatis.</div>
-                            @error('slug')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+
 
                         <hr class="my-4">
 

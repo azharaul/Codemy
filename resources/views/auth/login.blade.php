@@ -65,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="form-check">
                                     <input class="form-check-input" id="inputRememberPassword" type="checkbox"
                                         name="remember" />
@@ -73,7 +73,7 @@
                                         Saya</label>
                                 </div>
                                 <a class="small text-decoration-none fw-bold" href="#">Lupa Password?</a>
-                            </div>
+                            </div> --}}
 
                             <button type="submit" class="btn btn-primary w-100 btn-lg fw-bold shadow-sm">
                                 <i class="fas fa-sign-in-alt me-1"></i> Masuk Sekarang

@@ -12,8 +12,8 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['name' => 'Web Development', 'slug' => 'web-programming']);
-        Category::create(['name' => 'Database', 'slug' => 'database']);
-        Category::create(['name' => 'Game Development', 'slug' => 'game-development']);
+        Category::create(['name' => 'Web Development']);
+        Category::create(['name' => 'Database']);
+        Category::create(['name' => 'Game Development']);
     }
 }

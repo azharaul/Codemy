@@ -60,7 +60,7 @@ class TransactionController extends Controller
             }
         });
 
-        return redirect()->route('front.learning', $course->slug)->with('success', 'Pembayaran berhasil! Selamat belajar.');
+        return redirect()->route('front.learning', $course)->with('success', 'Pembayaran berhasil! Selamat belajar.');
     }
 
     /**

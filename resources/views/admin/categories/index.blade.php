@@ -26,7 +26,7 @@
                             <tr>
                                 <th class="border-0 py-3 ps-4" width="5%">#</th>
                                 <th class="border-0 py-3" width="40%">NAMA KATEGORI</th>
-                                <th class="border-0 py-3" width="30%">SLUG</th>
+
                                 <th class="border-0 py-3 pe-4 text-end" width="25%">AKSI</th>
                             </tr>
                         </thead>
@@ -42,7 +42,7 @@
                                             <span class="fw-bold text-dark">{{ $category->name }}</span>
                                         </div>
                                     </td>
-                                    <td><code class="text-primary bg-light px-2 py-1 rounded">{{ $category->slug }}</code></td>
+
                                     <td class="text-end pe-4">
                                         <div class="btn-group">
                                             <a href="{{ route('categories.edit', $category->id) }}"

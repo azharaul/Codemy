@@ -33,7 +33,7 @@
                         @method('PUT')
 
                         <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-12 mb-4">
                                 <label class="form-label fw-bold small text-uppercase text-muted"><i
                                         class="fas fa-heading me-1"></i> Nama Kursus</label>
                                 <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
@@ -42,15 +42,7 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-md-6 mb-4">
-                                <label class="form-label fw-bold small text-uppercase text-muted"><i
-                                        class="fas fa-link me-1"></i> Slug</label>
-                                <input type="text" class="form-control form-control-lg @error('slug') is-invalid @enderror"
-                                    name="slug" value="{{ old('slug', $course->slug) }}">
-                                @error('slug')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+
                         </div>
 
                         <div class="row">

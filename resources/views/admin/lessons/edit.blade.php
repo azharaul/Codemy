@@ -41,14 +41,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-4">
-                            <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-link me-1"></i> Slug (URL)</label>
-                            <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror"
-                                value="{{ old('slug', $lesson->slug) }}" required>
-                            @error('slug')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+
 
                         <div class="mb-4">
                             <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-video me-1"></i> Video URL</label>

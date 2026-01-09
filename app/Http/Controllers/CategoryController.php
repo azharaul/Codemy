@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+
 
 class CategoryController extends Controller
 {
@@ -31,7 +31,6 @@ class CategoryController extends Controller
 
         $category = Category::create([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
         ]);
 
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil dibuat.');
@@ -50,7 +49,6 @@ class CategoryController extends Controller
 
         $category->update([
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
         ]);
 
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');

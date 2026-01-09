@@ -24,12 +24,12 @@ class CheckCourseOwnership
         $user = Auth::user();
         
         // 2. Ambil parameter kursus dari Route
-        // Route kita: /learning/{course:slug} -> jadi parameternya 'course'
+        // Route kita: /learning/{course} -> jadi parameternya 'course' (ID)
         $course = $request->route('course');
 
         // 3. Cek apakah user terdaftar di kursus ini?
         if (!$course->students()->where('user_id', $user->id)->exists()) {
-            return redirect()->route('front.checkout', $course->slug)->with('error', 'Anda harus membeli kursus ini terlebih dahulu.');
+            return redirect()->route('front.checkout', $course)->with('error', 'Anda harus membeli kursus ini terlebih dahulu.');
         }
 
         return $next($request);

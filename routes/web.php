@@ -26,20 +26,20 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/my-courses', [\App\Http\Controllers\StudentController::class, 'index'])->name('front.my_courses');
-    Route::get('/checkout/{course:slug}', [TransactionController::class, 'create'])
+    Route::get('/checkout/{course}', [TransactionController::class, 'create'])
         ->name('front.checkout');
-    Route::post('/checkout/{course:slug}', [TransactionController::class, 'store'])
+    Route::post('/checkout/{course}', [TransactionController::class, 'store'])
         ->name('front.checkout.store');
 });
 
 Route::middleware(['auth', 'check-course-ownership'])->group(function () {
-    Route::get('/learning/{course:slug}', [FrontCourseController::class, 'show'])->name('front.learning');
+    Route::get('/learning/{course}', [FrontCourseController::class, 'show'])->name('front.learning');
 });
 
 // Publc Pages (New)
 Route::get('/courses', [FrontCourseController::class, 'index'])->name('front.course.index');
 Route::get('/category', [App\Http\Controllers\FrontCategoryController::class, 'index'])->name('front.category.index');
-Route::get('/category/{category:slug}', [App\Http\Controllers\FrontCategoryController::class, 'show'])->name('front.category.show');
+Route::get('/category/{category}', [App\Http\Controllers\FrontCategoryController::class, 'show'])->name('front.category.show');
 Route::view('/about', 'front.about')->name('front.about');
 
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {

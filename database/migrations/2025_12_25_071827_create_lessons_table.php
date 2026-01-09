@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
+
             $table->string('video_url'); // Wajib isi sesuai PDM
             $table->foreignId('course_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

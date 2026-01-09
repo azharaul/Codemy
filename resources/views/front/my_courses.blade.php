@@ -28,7 +28,7 @@
                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">
                                     {{ $course->category->name ?? 'Programming' }}</div>
                                 
-                                <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.learning', $course->slug) }}">
+                                <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.learning', $course) }}">
                                     <h5 class="card-title mb-3">{{ $course->name }}</h5>
                                 </a>
                                 <p class="card-text mb-0 text-muted small">{{ Str::limit($course->about, 80) }}</p>
@@ -41,7 +41,7 @@
                                             <div class="text-muted">{{ $course->created_at->format('d M, Y') }}</div>
                                         </div>
                                     </div>
-                                    <a href="{{ route('front.learning', $course->slug) }}" class="btn btn-sm btn-primary">Lanjut Belajar</a>
+                                    <a href="{{ route('front.learning', $course) }}" class="btn btn-sm btn-primary">Lanjut Belajar</a>
                                 </div>
                             </div>
                         </div>

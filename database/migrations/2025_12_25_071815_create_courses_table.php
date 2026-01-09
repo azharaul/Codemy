@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug')->unique();
+
             $table->string('thumbnail')->nullable(); // Gambar Boleh Kosong (Sesuai PDM 'o')
             $table->text('about')->nullable();       // Deskripsi Boleh Kosong (Sesuai PDM 'o')
             

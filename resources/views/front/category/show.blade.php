@@ -22,18 +22,18 @@
                     </div>
                     @auth
                         @if(Auth::user()->hasActiveCourse($course->id))
-                            <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.learning', $course->slug) }}">
+                            <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.learning', $course) }}">
                                 <h5 class="card-title mb-3">{{ $course->name }}</h5>
                                 <span class="badge bg-success">Akses Materi</span>
                             </a>
                         @else
-                            <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.checkout', $course->slug) }}">
+                            <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.checkout', $course) }}">
                                 <h5 class="card-title mb-3">{{ $course->name }}</h5>
                                 <span class="badge bg-warning text-dark">Beli Kursus</span>
                             </a>
                         @endif
                     @else
-                        <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.checkout', $course->slug) }}">
+                        <a class="text-decoration-none link-dark stretched-link" href="{{ route('front.checkout', $course) }}">
                             <h5 class="card-title mb-3">{{ $course->name }}</h5>
                         </a>
                     @endauth
