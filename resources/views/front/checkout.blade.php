@@ -17,7 +17,7 @@
                         <div class="d-flex align-items-center gap-3">
                              <div>
                                  <h5 class="fw-bold mb-1">{{ $course->name }}</h5>
-                                 <div class="text-primary fw-bold">Rp 99.000</div>
+                                 <div class="text-primary fw-bold">Rp {{ number_format($course->price, 0, ',', '.') }}</div>
                              </div>
                         </div>
                     </div>

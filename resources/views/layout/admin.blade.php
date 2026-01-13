@@ -41,7 +41,7 @@
                         <a class="nav-link {{ request()->routeIs('categories.*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('categories.index') }}">Kategori</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('users.*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('users.index') }}">Siswa</a>
+                        <a class="nav-link {{ request()->routeIs('users.*') ? 'active text-primary fw-bold' : '' }}" href="{{ route('users.index') }}">User</a>
                     </li>
                 </ul>
 

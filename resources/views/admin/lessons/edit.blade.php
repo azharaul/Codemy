@@ -44,6 +44,15 @@
 
 
                         <div class="mb-4">
+                            <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-align-left me-1"></i> Deskripsi Materi</label>
+                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4" 
+                                required>{{ old('description', $lesson->description) }}</textarea>
+                            @error('description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
                             <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-video me-1"></i> Video URL</label>
                             <input type="url" name="video_url" class="form-control @error('video_url') is-invalid @enderror"
                                 value="{{ old('video_url', $lesson->video_url) }}" required>

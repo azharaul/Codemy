@@ -47,14 +47,14 @@ class TransactionController extends Controller
             Transaction::create([
                 'user_id' => $user->id,
                 'course_id' => $course->id,
-                'total_amount' => 99000,
+                'total_amount' => $course->price,
                 'is_paid' => true,
                 'proof' => $proofPath,
                 'subscription_start_date' => now()
             ]);
 
-            if(!$course->students()->where('user_id', $user->id)->exists()){
-                 $user->courses()->attach($course->id);
+            if (!$course->students()->where('user_id', $user->id)->exists()) {
+                $user->courses()->attach($course->id);
             }
         });
 

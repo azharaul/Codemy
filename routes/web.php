@@ -1,17 +1,23 @@
 <?php
 
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\TransactionController;
+use \App\Http\Controllers\StudentController;
+use App\Http\Controllers\CategoryController;
+use \App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\FrontCourseController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\FrontCategoryController;
 
 
 
-Route::get('/', [\App\Http\Controllers\FrontHomeController::class, 'index'])->name('front.index');
+Route::get('/', [FrontHomeController::class, 'index'])->name('front.index');
 
 Route::get('/pricing', function () {
     return view('front.pricing');
@@ -25,7 +31,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/my-courses', [\App\Http\Controllers\StudentController::class, 'index'])->name('front.my_courses');
+    Route::get('/my-courses', [StudentController::class, 'index'])->name('front.my_courses');
     Route::get('/checkout/{course}', [TransactionController::class, 'create'])
         ->name('front.checkout');
     Route::post('/checkout/{course}', [TransactionController::class, 'store'])
@@ -37,16 +43,16 @@ Route::middleware(['auth', 'check-course-ownership'])->group(function () {
 });
 
 Route::get('/courses', [FrontCourseController::class, 'index'])->name('front.course.index');
-Route::get('/category', [App\Http\Controllers\FrontCategoryController::class, 'index'])->name('front.category.index');
-Route::get('/category/{category}', [App\Http\Controllers\FrontCategoryController::class, 'show'])->name('front.category.show');
+Route::get('/category', [FrontCategoryController::class, 'index'])->name('front.category.index');
+Route::get('/category/{category}', [FrontCategoryController::class, 'show'])->name('front.category.show');
 Route::view('/about', 'front.about')->name('front.about');
 
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         $stats = [
-            'users' => \App\Models\User::count(),
-            'courses' => \App\Models\Course::count(),
-            'categories' => \App\Models\Category::count(),
+            'users' => User::count(),
+            'courses' => Course::count(),
+            'categories' => Category::count(),
         ];
         return view('admin.dashboard', compact('stats'));
     })->name('dashboard');

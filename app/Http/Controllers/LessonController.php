@@ -31,12 +31,14 @@ class LessonController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'description' => 'required',
 
             'video_url' => 'required|url',
             'course_id' => 'required',
         ]);
         Lesson::create([
             'name' => $request->name,
+            'description' => $request->description,
 
             'video_url' => $request->video_url,
             'course_id' => $request->course_id,
@@ -71,12 +73,14 @@ class LessonController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'description' => 'required',
 
             'video_url' => 'required|url',
         ]);
 
         $lesson->update([
             'name' => $request->name,
+            'description' => $request->description,
 
             'video_url' => $request->video_url,
         ]);

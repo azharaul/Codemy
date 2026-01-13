@@ -11,10 +11,10 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-
     ];
 
-    public function courses(){
+    public function courses()
+    {
         return $this->hasMany(Course::class);
     }
 }

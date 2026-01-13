@@ -33,7 +33,7 @@
                         @method('PUT')
 
                         <div class="row">
-                            <div class="col-12 mb-4">
+                            <div class="col-md-6 mb-4">
                                 <label class="form-label fw-bold small text-uppercase text-muted"><i
                                         class="fas fa-heading me-1"></i> Nama Kursus</label>
                                 <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
@@ -42,7 +42,14 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-money-bill-wave me-1"></i> Harga (IDR)</label>
+                                <input type="number" class="form-control form-control-lg @error('price') is-invalid @enderror" 
+                                    name="price" value="{{ old('price', $course->price) }}" required>
+                                @error('price')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="row">
