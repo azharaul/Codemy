@@ -16,7 +16,6 @@ class Transaction extends Model
         'total_amount',
         'is_paid',
         'proof',
-        'subscription_start_date',
         'user_id',
         'course_id' // Added for Pay-Per-Course
     ];

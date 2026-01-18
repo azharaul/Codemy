@@ -50,7 +50,6 @@ class TransactionController extends Controller
                 'total_amount' => $course->price,
                 'is_paid' => true,
                 'proof' => $proofPath,
-                'subscription_start_date' => now()
             ]);
 
             if (!$course->students()->where('user_id', $user->id)->exists()) {

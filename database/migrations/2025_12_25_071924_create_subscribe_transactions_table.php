@@ -17,7 +17,6 @@ return new class extends Migration
             $table->unsignedBigInteger('total_amount');
             $table->boolean('is_paid');
             $table->string('proof')->nullable(); // Bukti bayar boleh kosong dulu
-            $table->date('subscription_start_date')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
