@@ -24,7 +24,7 @@ class CheckCourseOwnership
         
         $course = $request->route('course');
 
-        if (!$course->students()->where('user_id', $user->id)->exists()) {
+        if (!$user->hasActiveCourse($course->id)) {
             return redirect()->route('front.checkout', $course)->with('error', 'Anda harus membeli kursus ini terlebih dahulu.');
         }
 

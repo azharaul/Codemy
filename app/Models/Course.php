@@ -12,29 +12,33 @@ class Course extends Model
     protected $fillable = [
         'name',
         'price',
-
-        'about',        
-        'thumbnail',        
-        'teacher_id',        
-        'category_id'        
+        'about',
+        'thumbnail',
+        'teacher_id',
+        'category_id',
     ];
 
-    public function category(){
-        //1 kursus harus dimiliki oleh 1 kategori
+    public function category()
+    {
+        // 1 kursus harus dimiliki oleh 1 kategori
         return $this->belongsTo(Category::class);
     }
 
-    public function teacher(){
-        //1 kursus harus dimiliki oleh 1 teacher
+    public function teacher()
+    {
+        // 1 kursus harus dimiliki oleh 1 teacher
         return $this->belongsTo(User::class, 'teacher_id');
     }
-    public function lessons(){
-        //1 kursus dapat memiliki banyak materi
+
+    public function lessons()
+    {
+        // 1 kursus dapat memiliki banyak materi
         return $this->hasMany(Lesson::class);
     }
 
-    public function students(){
-        //1 kursus dapat memiliki banyak student
+    public function students()
+    {
+        // 1 kursus dapat memiliki banyak student
         return $this->belongsToMany(User::class, 'course_students');
     }
 }

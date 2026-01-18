@@ -26,21 +26,23 @@ class User extends Authenticatable
     ];
 
     public function courses()
-    { //kalau role nya student, maka akan menghubungkan ke course_student
-        return $this->belongsToMany(Course::class, 'course_students'); //course_students adalah nama tabel transaksi
-        //1 user bisa mengikuti banyak kursus
+    {
+        // kalau role nya student, maka akan menghubungkan ke course_student
+        // 1 user bisa mengikuti banyak kursus
+        return $this->belongsToMany(Course::class, 'course_students');
     }
 
     public function teaching()
-    { //kalau role nya teacher, maka akan menghubungkan ke course_teacher
+    {
+        // kalau role nya teacher, maka akan menghubungkan ke course_teacher
+        // 1 teacher bisa mengajar banyak kursus
         return $this->hasMany(Course::class, 'teacher_id');
-        //1 teacher bisa mengajar banyak kursus
     }
 
     public function transactions()
     {
+        // 1 user bisa memiliki banyak transaksi
         return $this->hasMany(Transaction::class);
-        //1 user bisa memiliki banyak transaksi
     }
 
     public function hasActiveCourse($course_id)
