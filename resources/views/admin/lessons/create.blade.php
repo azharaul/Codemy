@@ -35,7 +35,7 @@
                         <div class="mb-4">
                             <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-heading me-1"></i> Judul Materi</label>
                             <input type="text" name="name" class="form-control form-control-lg @error('name') is-invalid @enderror"
-                                value="{{ old('name') }}" placeholder="Contoh: Pengenalan Laravel" required>
+                                value="{{ old('name') }}" placeholder="Judul Materi" required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -46,7 +46,7 @@
                         <div class="mb-4">
                             <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-align-left me-1"></i> Deskripsi Materi</label>
                             <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4" 
-                                placeholder="Jelaskan isi materi ini..." required>{{ old('description') }}</textarea>
+                                placeholder="Deskripsi Materi" required>{{ old('description') }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-5">
     <div class="text-center mb-5">
-        <h2 class="fw-bolder">Kategori Belajar</h2>
+        <h2 class="fw-bolder">Kategori</h2>
         <p class="lead fw-normal text-muted mb-0">Pilih topik yang ingin Anda kuasai</p>
     </div>
 

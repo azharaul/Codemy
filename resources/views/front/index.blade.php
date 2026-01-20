@@ -6,7 +6,7 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-10">
                     <div class="my-5 text-start">
-                        <h1 class="display-5 fw-bold text-white mb-2">Bangun Karirmu Sebagai Developer Handal</h1>
+                        <h1 class="display-5 fw-bold text-white mb-2">Bangun Karirmu Sebagai Raja Koding!</h1>
                         <p class="lead fw-normal text-white-50 mb-4">Pelajari skill coding terkini dengan kurikulum
                             terupdate. Mulai dari HTML, CSS, Laravel, hingga React. Belajar kapan saja, di mana saja.</p>
                         <div class="d-grid gap-3 d-sm-flex">
@@ -23,7 +23,7 @@
         <div class="container px-5 my-5">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h2 class="fw-bolder mb-0">Cara terbaik untuk belajar coding.</h2>
+                    <h2 class="fw-bolder mb-0">Cara terbaik untuk belajar koding.</h2>
                 </div>
                 <div class="col-lg-8">
                     <div class="row gx-5 row-cols-1 row-cols-md-2">
@@ -53,7 +53,7 @@
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block"><i
                                     class="fas fa-chalkboard-teacher"></i></div>
                             <h2 class="h5">Mentor Expert</h2>
-                            <p class="mb-0">Belajar langsung dari pengajar yang berpengalaman di bidangnya.</p>
+                            <p class="mb-0">Belajar langsung dari mahasiswa yang berpengalaman di bidangnya.</p>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
                             <img class="card-img-top"
-                                src="{{ $course->thumbnail ?? 'https://dummyimage.com/600x350/dee2e6/6c757d.jpg' }}"
-                                alt="..." style="height: 200px; object-fit: cover;" />
+                                src="{{ $course->thumbnail}}"
+                                alt="thumbnail kursus" style="height: 200px; object-fit: cover;" />
                             <div class="card-body p-4">
                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">
                                     {{ $course->category->name ?? 'Programming' }}</div>

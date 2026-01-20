@@ -65,15 +65,7 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" id="inputRememberPassword" type="checkbox"
-                                        name="remember" />
-                                    <label class="form-check-label small text-muted" for="inputRememberPassword">Ingat
-                                        Saya</label>
-                                </div>
-                                <a class="small text-decoration-none fw-bold" href="#">Lupa Password?</a>
-                            </div> --}}
+                      
 
                             <button type="submit" class="btn btn-primary w-100 btn-lg fw-bold shadow-sm">
                                 <i class="fas fa-sign-in-alt me-1"></i> Masuk Sekarang
@@ -82,7 +74,7 @@
                     </div>
                     <div class="card-footer text-center py-3 bg-light border-top-0">
                         <div class="small text-muted">Belum punya akun? <a href="{{ route('register') }}"
-                                class="fw-bold text-primary text-decoration-none">Daftar Gratis</a></div>
+                                class="fw-bold text-primary text-decoration-none">Daftar Disini</a></div>
                     </div>
                 </div>
                 <div class="text-center mt-3 text-white-50 small">

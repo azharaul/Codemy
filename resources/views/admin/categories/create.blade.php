@@ -35,7 +35,7 @@
                             <label class="form-label fw-bold small text-uppercase text-muted"><i
                                     class="fas fa-tag me-1"></i> Nama Kategori</label>
                             <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
-                                id="name" name="name" placeholder="Contoh: Web Development" value="{{ old('name') }}"
+                                id="name" name="name" placeholder="Nama Kategori" value="{{ old('name') }}"
                                 required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>

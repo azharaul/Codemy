@@ -33,9 +33,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($courses as $key => $course)
+                            @foreach($courses as $course)
                                 <tr>
-                                    <td class="ps-4 fw-bold text-muted">{{ $key + 1 }}</td>
+                                    <td class="ps-4 fw-bold text-muted">{{ $loop->iteration }}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             @if($course->thumbnail)
@@ -59,12 +59,12 @@
                                                 style="width: 32px; height: 32px;">
                                                 <i class="fas fa-user-tie fa-xs"></i>
                                             </div>
-                                            <span class="small fw-semibold">{{ $course->teacher->name ?? 'Tanpa Guru' }}</span>
+                                            <span class="small fw-semibold">{{ $course->teacher->name}}</span>
                                         </div>
                                     </td>
                                     <td>
                                         <span class="badge bg-light text-dark border fw-normal px-2 py-1">
-                                            {{ $course->category->name ?? 'Uncategorized' }}
+                                            {{ $course->category->name}}
                                         </span>
                                     </td>
                                     <td>

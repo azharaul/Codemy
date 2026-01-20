@@ -31,9 +31,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($categories as $key => $category)
+                            @foreach($categories as $category)
                                 <tr>
-                                    <td class="ps-4 fw-bold text-muted">{{ $key + 1 }}</td>
+                                    <td class="ps-4 fw-bold text-muted">{{ $loop->iteration }}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="bg-warning bg-opacity-10 text-warning rounded p-2 me-3">

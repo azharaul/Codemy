@@ -31,17 +31,8 @@ class TransactionController extends Controller
      */
     public function store(Request $request, Course $course)
     {
-        $request->validate([
-            'proof' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
-
         DB::transaction(function () use ($request, $course) {
             $user = Auth::user();
-            $proofPath = null;
-
-            if ($request->hasFile('proof')) {
-                $proofPath = $request->file('proof')->store('proofs', 'public');
-            }
 
             // 1. Buat Transaksi
             Transaction::create([
@@ -49,7 +40,7 @@ class TransactionController extends Controller
                 'course_id' => $course->id,
                 'total_amount' => $course->price,
                 'is_paid' => true,
-                'proof' => $proofPath,
+                'proof' => null,
             ]);
 
             if (!$course->students()->where('user_id', $user->id)->exists()) {

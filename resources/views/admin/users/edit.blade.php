@@ -52,7 +52,7 @@
 
                         <div class="mb-4">
                             <label class="form-label fw-bold small text-uppercase text-muted"><i
-                                    class="fas fa-user-tag me-1"></i> Role (Peran)</label>
+                                    class="fas fa-user-tag me-1"></i> Role</label>
                             <select name="role" class="form-select">
                                 <option value="student" {{ $user->role == 'student' ? 'selected' : '' }}>Student (Siswa)
                                 </option>

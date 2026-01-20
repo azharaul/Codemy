@@ -9,7 +9,7 @@
             <div class="display-6 me-3"><i class="fas fa-rocket"></i></div>
             <div>
                 <h4 class="alert-heading fw-bold mb-1">Selamat Datang di Codemy!</h4>
-                <p class="mb-0">Halo Admin, berikut adalah ringkasan statistik platform pembelajaran Anda hari ini.</p>
+                <p class="mb-0">Halo Mas Admin, berikut adalah ringkasan statistik platform pembelajaran Kamu hari ini.</p>
             </div>
         </div>
     </div>

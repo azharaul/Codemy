@@ -32,9 +32,7 @@
                                 </td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    @if($user->role == 'owner')
-                                        <span class="badge bg-danger bg-opacity-10 text-danger border border-danger px-3">Owner</span>
-                                    @elseif($user->role == 'teacher')
+                                    @if($user->role == 'teacher')
                                         <span class="badge bg-warning bg-opacity-10 text-warning border border-warning px-3">Teacher</span>
                                     @else
                                         <span class="badge bg-primary bg-opacity-10 text-primary border border-primary px-3">Student</span>

@@ -60,7 +60,7 @@
                                     <div class="bg-white p-2 rounded-circle border me-2">
                                         <i class="fas fa-user-tie text-primary"></i>
                                     </div>
-                                    <span class="fw-semibold">{{ $course->teacher->name ?? 'Tidak ada' }}</span>
+                                    <span class="fw-semibold">{{ $course->teacher->name}}</span>
                                 </div>
                             </div>
                         </div>
@@ -146,19 +146,14 @@
                         </div>
                     @else
                         <div class="list-group list-group-flush">
-                            @foreach($course->lessons as $index => $lesson)
+                            @foreach($course->lessons as $lesson)
                                 <div class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center p-3 hover-bg-light transition-all">
                                     <div class="d-flex align-items-center overflow-hidden">
                                         <div class="bg-light text-secondary rounded d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 36px; height: 36px; font-weight: bold; font-size: 0.8rem;">
-                                            {{ $index + 1 }}
+                                            {{ $loop->iteration }}
                                         </div>
                                         <div class="text-truncate">
                                             <h6 class="mb-0 text-dark fw-semibold text-truncate">{{ $lesson->name }}</h6>
-                                            @if($lesson->video_url)
-                                                <small class="text-success small d-block"><i class="fas fa-check-circle me-1"></i> Video Ready</small>
-                                            @else
-                                                <small class="text-muted small d-block fst-italic">No Video</small>
-                                            @endif
                                         </div>
                                     </div>
                                     <div class="btn-group ms-2">

@@ -8,7 +8,7 @@
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
                         <h1 class="display-5 fw-bold text-white mb-2">Kelas Saya</h1>
-                        <p class="lead fw-normal text-white-50 mb-4">Lanjutkan pembelajaran Anda dan tingkatkan skill coding Anda.</p>
+                        <p class="lead fw-normal text-white-50 mb-4">Lanjutkan pembelajaran Anda dan tingkatkan skill koding Anda.</p>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <div class="col-lg-4 col-md-6 mb-5">
                         <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
                             <img class="card-img-top"
-                                src="{{ $course->thumbnail ?? 'https://dummyimage.com/600x350/dee2e6/6c757d.jpg' }}" alt="..."
+                                src="{{ $course->thumbnail}}" alt="Thumbnail Kursus"
                                 style="height: 200px; object-fit: cover;" />
                             <div class="card-body p-4">
                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">

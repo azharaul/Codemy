@@ -19,9 +19,7 @@ use App\Http\Controllers\FrontCategoryController;
 
 Route::get('/', [FrontHomeController::class, 'index'])->name('front.index');
 
-Route::get('/pricing', function () {
-    return view('front.pricing');
-})->name('front.pricing');
+
 
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -32,10 +30,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/my-courses', [StudentController::class, 'index'])->name('front.my_courses');
-    Route::get('/checkout/{course}', [TransactionController::class, 'create'])
-        ->name('front.checkout');
-    Route::post('/checkout/{course}', [TransactionController::class, 'store'])
-        ->name('front.checkout.store');
+    Route::get('/checkout/{course}', [TransactionController::class, 'create'])->name('front.checkout');
+    Route::post('/checkout/{course}', [TransactionController::class, 'store'])->name('front.checkout.store');
 });
 
 Route::middleware(['auth', 'check-course-ownership'])->group(function () {

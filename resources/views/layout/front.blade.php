@@ -48,7 +48,7 @@
                                         <i class="fas fa-user-circle me-1"></i> {{ Auth::user()->name }}
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="dropdownMenuLink">
-                                       <!-- Hanya Teacher yang butuh akses ke Dashboard Admin -->
+                        
                                         @if(Auth::user()->role === 'teacher')
                                             <li><a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt me-2 text-muted"></i> Dashboard</a></li>
                                         @endif

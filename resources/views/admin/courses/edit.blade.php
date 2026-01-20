@@ -43,7 +43,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-4">
-                                <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-money-bill-wave me-1"></i> Harga (IDR)</label>
+                                <label class="form-label fw-bold small text-uppercase text-muted"><i class="fas fa-money-bill-wave me-1"></i> Harga Kursus</label>
                                 <input type="number" class="form-control form-control-lg @error('price') is-invalid @enderror" 
                                     name="price" value="{{ old('price', $course->price) }}" required>
                                 @error('price')
@@ -74,7 +74,7 @@
                                         class="fas fa-chalkboard-teacher me-1"></i> Pengajar</label>
                                 <select class="form-select @error('teacher_id') is-invalid @enderror" name="teacher_id"
                                     required>
-                                    <option value="">-- Pilih Guru --</option>
+                                    <option value="">-- Pilih Pengajar --</option>
                                     @foreach(\App\Models\User::where('role', 'teacher')->get() as $teacher)
                                         <option value="{{ $teacher->id }}" {{ old('teacher_id', $course->teacher_id) == $teacher->id ? 'selected' : '' }}>
                                             {{ $teacher->name }}
@@ -89,7 +89,7 @@
 
                         <div class="mb-4">
                             <label class="form-label fw-bold small text-uppercase text-muted"><i
-                                    class="fas fa-align-left me-1"></i> Deskripsi Singkat</label>
+                                    class="fas fa-align-left me-1"></i> Deskripsi</label>
                             <textarea class="form-control @error('about') is-invalid @enderror" name="about" rows="4"
                                 required>{{ old('about', $course->about) }}</textarea>
                             @error('about')

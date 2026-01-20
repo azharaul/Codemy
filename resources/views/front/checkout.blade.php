@@ -28,18 +28,9 @@
                          </div>
                     </div>
 
-                    <form action="{{ route('front.checkout.store', $course) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('front.checkout.store', $course) }}" method="POST">
                         @csrf
                         
-                        <div class="mb-4">
-                            <label class="form-label fw-bold small text-uppercase text-muted">Upload Bukti Transfer (Opsional)</label>
-                            <input type="file" name="proof" class="form-control form-control-lg @error('proof') is-invalid @enderror">
-                            @error('proof')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                            <div class="form-text mt-2">Format: JPG, PNG. Maks 2MB. Bisa dikosongkan untuk demo.</div>
-                        </div>
-
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold py-3 shadow-sm transition-hover">
                                 <i class="fas fa-lock me-2"></i> Bayar & Akses Kelas
