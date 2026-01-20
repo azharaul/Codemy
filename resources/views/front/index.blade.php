@@ -8,7 +8,7 @@
                     <div class="my-5 text-start">
                         <h1 class="display-5 fw-bold text-white mb-2">Bangun Karirmu Sebagai Developer Handal</h1>
                         <p class="lead fw-normal text-white-50 mb-4">Pelajari skill coding terkini dengan kurikulum
-                            industri. Mulai dari HTML, CSS, Laravel, hingga React. Belajar kapan saja, di mana saja.</p>
+                            terupdate. Mulai dari HTML, CSS, Laravel, hingga React. Belajar kapan saja, di mana saja.</p>
                         <div class="d-grid gap-3 d-sm-flex">
                             <a class="btn btn-primary btn-lg px-4 me-sm-3 fw-bold" href="#courses">Mulai Belajar</a>
                         </div>
@@ -31,14 +31,14 @@
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block"><i
                                     class="fas fa-code"></i></div>
                             <h2 class="h5">Materi Terupdate</h2>
-                            <p class="mb-0">Kurikulum kami selalu diperbarui mengikuti standar industri teknologi masa
+                            <p class="mb-0">Kurikulum kami selalu diperbarui mengikuti standar teknologi masa
                                 kini.
                             </p>
                         </div>
                         <div class="col mb-5 h-100">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block"><i
                                     class="fas fa-certificate"></i></div>
-                            <h2 class="h5">Sertifikat Kompetensi</h2>
+                            <h2 class="h5">Sertifikat</h2>
                             <p class="mb-0">Dapatkan sertifikat resmi setelah menyelesaikan setiap kursus dan proyek
                                 akhir.
                             </p>
@@ -46,14 +46,14 @@
                         <div class="col mb-5 mb-md-0 h-100">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block"><i
                                     class="fas fa-users"></i></div>
-                            <h2 class="h5">Komunitas Aktif</h2>
-                            <p class="mb-0">Bergabung dengan ribuan developer lain di grup diskusi eksklusif kami.</p>
+                            <h2 class="h5">Komunitas</h2>
+                            <p class="mb-0">Bergabung dengan ribuan developer lain di grup discord eksklusif kami.</p>
                         </div>
                         <div class="col h-100">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block"><i
                                     class="fas fa-chalkboard-teacher"></i></div>
                             <h2 class="h5">Mentor Expert</h2>
-                            <p class="mb-0">Belajar langsung dari praktisi yang berpengalaman di bidangnya.</p>
+                            <p class="mb-0">Belajar langsung dari pengajar yang berpengalaman di bidangnya.</p>
                         </div>
                     </div>
                 </div>
