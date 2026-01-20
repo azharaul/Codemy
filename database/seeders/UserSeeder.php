@@ -35,5 +35,14 @@ class UserSeeder extends Seeder
             'occupation' => 'Admin Codemy',
             'role' => 'teacher',
         ]);
+
+        User::create([
+            'name' => 'Guest',
+            'email' => 'Guest@gmail.com',
+            'password' => bcrypt('guest123'),
+            'occupation' => 'Tamu',
+            'role' => 'student',
+        ]);
+
     }
 }
