@@ -5,7 +5,7 @@
 ![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
-**Codemy** adalah platform pembelajaran online yang dirancang untuk menghubungkan pengajar dan siswa secara mulus. Kami percaya dalam membuat interaksi pengetahuan menjadi praktis, mudah diakses, dan efektif.
+**Codemy** adalah platform pembelajaran online yang dirancang untuk menghubungkan pengajar yang ingin mengajar ke mahasiswa yang ingin belajar koding dan sebaliknya.
 
 ---
 
@@ -15,33 +15,19 @@ Codemy berperan sebagai jembatan dalam ruang pendidikan digital. Konsepnya seder
 - **Pengajar** dapat membuat, mengelola, dan menjual kelas berbasis video.
 - **Siswa** dapat menjelajahi, membeli, dan mengakses materi pembelajaran yang disesuaikan dengan minat mereka.
 
-Kami membangun Codemy untuk mendemokratisasi akses ke keterampilan dan pengetahuan, menyediakan alat yang tangguh bagi para pendidik dan lingkungan belajar yang fleksibel bagi siswa.
-
-## ✨ Fitur Utama
-
-*   **👥 Peran Pengguna Ganda**: Dasbor dan fungsionalitas khusus untuk **Siswa** dan **Pengajar**.
-*   **📚 Manajemen Kursus**: Pengajar dapat membuat kursus, mengatur harga, menulis deskripsi, dan mengunggah video pelajaran.
-*   **📺 Pembelajaran Video**: Penyampaian pelajaran yang terstruktur dengan dukungan video.
-*   **📂 Kategorisasi**: Kursus diatur ke dalam kategori untuk memudahkan pencarian.
-*   **💸 Langganan & Transaksi**: Alur khusus untuk pembelian kursus, termasuk unggah bukti pembayaran dan validasi.
-*   **🔒 Autentikasi Aman**: Manajemen pengguna dan kontrol akses yang kuat.
-
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Tech Stack
 
 *   **Framework**: [Laravel 12](https://laravel.com)
-*   **Bahasa**: PHP 8.2
+*   **Language**: PHP 8.2
 *   **Frontend**: Blade Templates, Vite
-*   **Database**: SQLite / MySQL
+*   **Database**: MySQL
 
-## 🚀 Memulai
-
-Ikuti langkah-langkah ini untuk mengatur proyek secara lokal di mesin Anda.
+## 🚀 Getting Started
 
 ### Prasyarat
 
 *   PHP >= 8.2
 *   Composer
-*   Node.js & NPM
 
 ### Instalasi
 
@@ -56,12 +42,7 @@ Ikuti langkah-langkah ini untuk mengatur proyek secara lokal di mesin Anda.
     composer install
     ```
 
-3.  **Instal dependensi Frontend**
-    ```bash
-    npm install
-    ```
-
-4.  **Pengaturan Lingkungan**
+3.  **Environment Setup**
     Salin file `.env.example` menjadi `.env`:
     ```bash
     cp .env.example .env
@@ -79,27 +60,11 @@ Ikuti langkah-langkah ini untuk mengatur proyek secara lokal di mesin Anda.
     php artisan migrate
     ```
 
-7.  **Jalankan Server**
-    Anda perlu menjalankan server pengembangan Laravel dan Vite.
-    ```bash
-    npm run dev
-    ```
-    *Catatan: Skrip `dev` di `composer.json` dikonfigurasi untuk menjalankan `php artisan serve`, `queue:listen`, dan `npm run dev` secara bersamaan.*
-    
-    Atau, jalankan secara terpisah:
-    ```bash
-    php artisan serve
-    npm run dev
-    ```
 
-## 👥 Penulis
+## 👥 Authors
 
-**Cluster ARK DEV**
+**Kelompok ARK DEV**
 
 *   **Azhar Aulia Priatna** - 1402024013
 *   **Muhammad Rafi** - 1402024040
 *   **Askhabul Nur Ardiansyakh** - 1402024012
-
-## 📄 Lisensi
-
-Framework dan proyek ini adalah perangkat lunak sumber terbuka yang dilisensikan di bawah [lisensi MIT](https://opensource.org/licenses/MIT).
