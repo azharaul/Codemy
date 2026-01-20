@@ -22,12 +22,12 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Askhabul Nur Ardhiansyakh',
-            'email' => 'ardhi@gmail.com',
+            'email' => 'ardhiansyakh@gmail.com',
             'password' => bcrypt('admin123'),
             'occupation' => 'Admin Codemy',
             'role' => 'teacher',
         ]);
-        
+
         User::create([
             'name' => 'Muhammad Rafi',
             'email' => 'mhrf@gmail.com',
