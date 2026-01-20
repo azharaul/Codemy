@@ -5,94 +5,94 @@
 ![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
-**Codemy** is an online learning platform designed to seamlessly connect teachers and students. We believe in making knowledge interaction practical, accessible, and effective.
+**Codemy** adalah platform pembelajaran online yang dirancang untuk menghubungkan pengajar dan siswa secara mulus. Kami percaya dalam membuat interaksi pengetahuan menjadi praktis, mudah diakses, dan efektif.
 
 ---
 
-## 📖 About The Project
+## 📖 Tentang Proyek
 
-Codemy acts as a bridge in the digital education space. The concept is simple yet powerful:
-- **Teachers** can create, manage, and sell video-based classes.
-- **Students** can explore, purchase, and access learning materials tailored to their interests.
+Codemy berperan sebagai jembatan dalam ruang pendidikan digital. Konsepnya sederhana namun kuat:
+- **Pengajar** dapat membuat, mengelola, dan menjual kelas berbasis video.
+- **Siswa** dapat menjelajahi, membeli, dan mengakses materi pembelajaran yang disesuaikan dengan minat mereka.
 
-We built Codemy to democratize access to skills and knowledge, providing a robust tool for educators and a flexible learning environment for students.
+Kami membangun Codemy untuk mendemokratisasi akses ke keterampilan dan pengetahuan, menyediakan alat yang tangguh bagi para pendidik dan lingkungan belajar yang fleksibel bagi siswa.
 
-## ✨ Key Features
+## ✨ Fitur Utama
 
-*   **👥 Dual User Roles**: Dedicated dashboards and functionalities for both **Students** and **Teachers**.
-*   **📚 Course Management**: Teachers can create courses, set prices, write descriptions, and upload video lessons.
-*   **📺 Video Learning**: Structured lesson delivery with video support.
-*   **📂 Categorization**: Courses are organized into categories for easy discovery.
-*   **💸 Subscription & Transactions**: specialized flow for course purchasing, including proof-of-payment uploads and validation.
-*   **🔒 Secure Authentication**: Robust user management and access control.
+*   **👥 Peran Pengguna Ganda**: Dasbor dan fungsionalitas khusus untuk **Siswa** dan **Pengajar**.
+*   **📚 Manajemen Kursus**: Pengajar dapat membuat kursus, mengatur harga, menulis deskripsi, dan mengunggah video pelajaran.
+*   **📺 Pembelajaran Video**: Penyampaian pelajaran yang terstruktur dengan dukungan video.
+*   **📂 Kategorisasi**: Kursus diatur ke dalam kategori untuk memudahkan pencarian.
+*   **💸 Langganan & Transaksi**: Alur khusus untuk pembelian kursus, termasuk unggah bukti pembayaran dan validasi.
+*   **🔒 Autentikasi Aman**: Manajemen pengguna dan kontrol akses yang kuat.
 
-## 🛠️ Tech Stack
+## 🛠️ Teknologi yang Digunakan
 
 *   **Framework**: [Laravel 12](https://laravel.com)
-*   **Language**: PHP 8.2
+*   **Bahasa**: PHP 8.2
 *   **Frontend**: Blade Templates, Vite
 *   **Database**: SQLite / MySQL
 
-## 🚀 Getting Started
+## 🚀 Memulai
 
-Follow these steps to set up the project locally on your machine.
+Ikuti langkah-langkah ini untuk mengatur proyek secara lokal di mesin Anda.
 
-### Prerequisites
+### Prasyarat
 
 *   PHP >= 8.2
 *   Composer
 *   Node.js & NPM
 
-### Installation
+### Instalasi
 
-1.  **Clone the repository**
+1.  **Clone repositori**
     ```bash
     git clone https://github.com/yourusername/codemy.git
     cd codemy
     ```
 
-2.  **Install PHP dependencies**
+2.  **Instal dependensi PHP**
     ```bash
     composer install
     ```
 
-3.  **Install Frontend dependencies**
+3.  **Instal dependensi Frontend**
     ```bash
     npm install
     ```
 
-4.  **Environment Setup**
-    Copy the `.env.example` file to `.env`:
+4.  **Pengaturan Lingkungan**
+    Salin file `.env.example` menjadi `.env`:
     ```bash
     cp .env.example .env
     ```
-    *Configure your database settings in the `.env` file if you are not using SQLite.*
+    *Konfigurasikan pengaturan database Anda di file `.env` jika Anda tidak menggunakan SQLite.*
 
 5.  **Generate App Key**
     ```bash
     php artisan key:generate
     ```
 
-6.  **Run Migrations**
-    Set up the database tables:
+6.  **Jalankan Migrasi**
+    Siapkan tabel database:
     ```bash
     php artisan migrate
     ```
 
-7.  **Start the Server**
-    You need to run both the Laravel development server and Vite.
+7.  **Jalankan Server**
+    Anda perlu menjalankan server pengembangan Laravel dan Vite.
     ```bash
     npm run dev
     ```
-    *Note: The `dev` script in `composer.json` is configured to run both `php artisan serve`, `queue:listen`, and `npm run dev` concurrently.*
+    *Catatan: Skrip `dev` di `composer.json` dikonfigurasi untuk menjalankan `php artisan serve`, `queue:listen`, dan `npm run dev` secara bersamaan.*
     
-    Alternatively, run them separately:
+    Atau, jalankan secara terpisah:
     ```bash
     php artisan serve
     npm run dev
     ```
 
-## 👥 Authors
+## 👥 Penulis
 
 **Cluster ARK DEV**
 
@@ -100,6 +100,6 @@ Follow these steps to set up the project locally on your machine.
 *   **Muhammad Rafi** - 1402024040
 *   **Askhabul Nur Ardiansyakh** - 1402024012
 
-## 📄 License
+## 📄 Lisensi
 
-The framework and this project are open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Framework dan proyek ini adalah perangkat lunak sumber terbuka yang dilisensikan di bawah [lisensi MIT](https://opensource.org/licenses/MIT).
